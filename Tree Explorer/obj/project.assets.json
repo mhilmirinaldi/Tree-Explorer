@@ -1,11 +1,89 @@
 {
   "version": 3,
   "targets": {
-    "net6.0-windows7.0": {}
+    "net6.0-windows7.0": {
+      "AutomaticGraphLayout/1.1.12": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/AutomaticGraphLayout.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/AutomaticGraphLayout.dll": {}
+        }
+      },
+      "AutomaticGraphLayout.Drawing/1.1.12": {
+        "type": "package",
+        "dependencies": {
+          "AutomaticGraphLayout": "1.1.12"
+        },
+        "compile": {
+          "lib/netstandard2.0/AutomaticGraphLayout.Drawing.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/AutomaticGraphLayout.Drawing.dll": {}
+        }
+      },
+      "AutomaticGraphLayout.WpfGraphControl/1.1.12": {
+        "type": "package",
+        "dependencies": {
+          "AutomaticGraphLayout.Drawing": "1.1.12"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.Msagl.WpfGraphControl.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Msagl.WpfGraphControl.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "AutomaticGraphLayout/1.1.12": {
+      "sha512": "Txc1uVLwnKemnPWmGSAVSZaBR95VTxU7/LfarvSOuJC6KuwPW4xrLpIGTOUbCXYZiSnkxN2jiC3FwX/2051+9g==",
+      "type": "package",
+      "path": "automaticgraphlayout/1.1.12",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "automaticgraphlayout.1.1.12.nupkg.sha512",
+        "automaticgraphlayout.nuspec",
+        "lib/netstandard2.0/AutomaticGraphLayout.dll"
+      ]
+    },
+    "AutomaticGraphLayout.Drawing/1.1.12": {
+      "sha512": "LYDrw069a2TGFJkALLyKLXISdMlWNiPiyXetVbzRlEpxhmBUt7BmbIy5pBSvaVdSXD9xkNe4yj/M3cT4mwH65w==",
+      "type": "package",
+      "path": "automaticgraphlayout.drawing/1.1.12",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "automaticgraphlayout.drawing.1.1.12.nupkg.sha512",
+        "automaticgraphlayout.drawing.nuspec",
+        "lib/netstandard2.0/AutomaticGraphLayout.Drawing.dll"
+      ]
+    },
+    "AutomaticGraphLayout.WpfGraphControl/1.1.12": {
+      "sha512": "WU4B6m5/r7yyY4MmUg/5RodQRxeluSLSD4ROAqSEDy1GKm/zTRcfc1B3NNBuMv7nMxOni22xbvHA++m7mXlnSg==",
+      "type": "package",
+      "path": "automaticgraphlayout.wpfgraphcontrol/1.1.12",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "automaticgraphlayout.wpfgraphcontrol.1.1.12.nupkg.sha512",
+        "automaticgraphlayout.wpfgraphcontrol.nuspec",
+        "lib/net461/Microsoft.Msagl.WpfGraphControl.dll",
+        "lib/net472/Microsoft.Msagl.WpfGraphControl.dll",
+        "lib/netcoreapp3.1/Microsoft.Msagl.WpfGraphControl.dll"
+      ]
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0-windows7.0": []
+    "net6.0-windows7.0": [
+      "AutomaticGraphLayout.WpfGraphControl >= 1.1.12"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\LENOVO\\.nuget\\packages\\": {},
@@ -50,6 +128,12 @@
     "frameworks": {
       "net6.0-windows7.0": {
         "targetAlias": "net6.0-windows",
+        "dependencies": {
+          "AutomaticGraphLayout.WpfGraphControl": {
+            "target": "Package",
+            "version": "[1.1.12, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

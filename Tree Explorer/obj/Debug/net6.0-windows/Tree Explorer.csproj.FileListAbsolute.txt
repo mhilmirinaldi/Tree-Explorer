@@ -19,3 +19,7 @@ C:\Bryan\Kuliah\Semester 4 (2021-2022)\3 Strategi Algoritma\Folder Crawling Tube
 C:\Bryan\Kuliah\Semester 4 (2021-2022)\3 Strategi Algoritma\Folder Crawling Tubes 2\Tubes2-Stima\Tree Explorer\obj\Debug\net6.0-windows\Tree Explorer.pdb
 C:\Bryan\Kuliah\Semester 4 (2021-2022)\3 Strategi Algoritma\Folder Crawling Tubes 2\Tubes2-Stima\Tree Explorer\obj\Debug\net6.0-windows\Tree Explorer.genruntimeconfig.cache
 C:\Bryan\Kuliah\Semester 4 (2021-2022)\3 Strategi Algoritma\Folder Crawling Tubes 2\Tubes2-Stima\Tree Explorer\obj\Debug\net6.0-windows\ref\Tree Explorer.dll
+C:\Bryan\Kuliah\Semester 4 (2021-2022)\3 Strategi Algoritma\Folder Crawling Tubes 2\Tubes2-Stima\Tree Explorer\obj\Debug\net6.0-windows\Tree Explorer.csproj.CopyComplete
+C:\Bryan\Kuliah\Semester 4 (2021-2022)\3 Strategi Algoritma\Folder Crawling Tubes 2\Tubes2-Stima\Tree Explorer\bin\Debug\net6.0-windows\AutomaticGraphLayout.dll
+C:\Bryan\Kuliah\Semester 4 (2021-2022)\3 Strategi Algoritma\Folder Crawling Tubes 2\Tubes2-Stima\Tree Explorer\bin\Debug\net6.0-windows\AutomaticGraphLayout.Drawing.dll
+C:\Bryan\Kuliah\Semester 4 (2021-2022)\3 Strategi Algoritma\Folder Crawling Tubes 2\Tubes2-Stima\Tree Explorer\bin\Debug\net6.0-windows\Microsoft.Msagl.WpfGraphControl.dll

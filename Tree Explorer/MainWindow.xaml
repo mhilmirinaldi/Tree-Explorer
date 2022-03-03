@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:wpfcoregraphcontrol="http://mlsagl"
         xmlns:local="clr-namespace:Tree_Explorer"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
@@ -21,29 +22,48 @@
 
         <Grid Grid.Row="1" Margin="10 0 0 0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
-
+            
+            <!-- Input -->
             <StackPanel Grid.Column="0">
-                <Label>Input</Label>
+                <Label FontSize="15">Input</Label>
                 <Label>Choose Starting Directory</Label>
                 
-                <StackPanel Orientation="Horizontal" Margin="5 0 0 0">
-                    <Button x:Name="chooseFolderButton" Click="chooseFolderButton_Click">Choose Folder..</Button>
-                    <Label x:Name="startingFolderName">No File Chosen</Label>
-                </StackPanel>
+                <DockPanel Margin="5 0 0 0">
+                    <Button x:Name="chooseFolderButton" Padding="3" Click="chooseFolderButton_Click" VerticalAlignment="Center">Choose Folder..</Button>
+                    <TextBlock
+                        x:Name="startingFolderName"
+                        Margin="5 0 0 0"
+                        VerticalAlignment="Center"
+                        TextWrapping="Wrap">No Folder Chosen</TextBlock>
+                </DockPanel>
                 
                 <Label Margin="0 10 0 0">Input File Name</Label>
-                <TextBox Margin="0 0 100 0" x:Name="inputFileName"/>
+                <TextBox Margin="0 0 0 0" x:Name="inputFileName"/>
                 
                 <CheckBox Margin="0 7 0 0">Find all occurence</CheckBox>
                 <Label Margin="0 5 0 0">Metode Pencarian</Label>
                 <RadioButton GroupName="MetodePencarian" IsChecked="True">BFS</RadioButton>
                 <RadioButton GroupName="MetodePencarian">DFS</RadioButton>
-                
-                <Button Margin="0 10 0 0" Width="60" HorizontalAlignment="Left" Background="BlueViolet" Foreground="White">Search</Button>
+
+                <Button x:Name="searchButton" Click="searchButton_Click" Padding="5" Margin="0 10 0 0" Width="60" HorizontalAlignment="Left" Background="BlueViolet" Foreground="White">Search</Button>
             </StackPanel>
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <wpfcoregraphcontrol:AutomaticGraphLayoutControl
+                    x:Name="graphControl"
+                    Grid.Row="1"/>
+
+                <Label FontSize="15" HorizontalAlignment="Center">Output</Label>
+                <ListBox x:Name="matchPathList" Grid.Row="2"/>
+            </Grid>
         </Grid>
     </Grid>
 </Window>
