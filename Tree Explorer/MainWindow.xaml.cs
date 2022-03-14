@@ -56,8 +56,13 @@ namespace Tree_Explorer
             {
                 Node graphNode = new Node(path + "\\" + node.info);
                 graphNode.LabelText = node.info;
+                TreeColorToRGB nodeColor = new TreeColorToRGB(node.nodeColor);
+                Microsoft.Msagl.Drawing.Color nodeEdgeColor = new Microsoft.Msagl.Drawing.Color(nodeColor.r, nodeColor.g, nodeColor.b);
+                graphNode.Attr.Color = nodeEdgeColor;
                 this.graph.AddNode(graphNode);
-                this.graph.AddEdge(path, graphNode.Id);
+
+                Edge newEdge = this.graph.AddEdge(path, graphNode.Id);
+                newEdge.Attr.Color = nodeEdgeColor;
                 if(node.children.Count > 0)
                 {
                     updateGraph(path + "\\" + node.info, node);
@@ -71,7 +76,7 @@ namespace Tree_Explorer
             FileInfo[]  fileInfos = new DirectoryInfo(path).GetFiles();
             foreach(FileInfo fileInfo in fileInfos)
             {
-                this.dirTree.children.Add(new Tree(fileInfo.Name));
+                this.dirTree.children.Add(new Tree(fileInfo.Name, TreeColor.RED));
             }
 
             DirectoryInfo[] directoryInfos = new DirectoryInfo(path).GetDirectories();
@@ -95,9 +100,14 @@ namespace Tree_Explorer
                 constructDirectoryTree(path);
 
                 this.graph = new Graph();
-                graph.AddNode(path);
+
+                Node rootNode = new Node(path);
+                TreeColorToRGB rootColor = new TreeColorToRGB(this.dirTree.nodeColor);
+                rootNode.Attr.Color = new Microsoft.Msagl.Drawing.Color(rootColor.r, rootColor.g, rootColor.b);
+                graph.AddNode(rootNode);
+
                 updateGraph(path, this.dirTree);
-                graphControl.Graph = this.graph;
+                graphControl.Graph = this.graph;    // Mengupdate graph di UI (graphControl)
             }
         }
     }
