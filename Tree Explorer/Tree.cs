@@ -81,5 +81,92 @@ namespace Tree_Explorer
             this.nodeColor = nodeColor;
             this.children = new List<Tree>();
         }
+
+        public bool isLeaf()
+        {
+            return this.children.Count == 0;
+        }
+
+        public void changeToRED()
+        {
+            if(this.nodeColor == TreeColor.BLACK)
+            {
+                this.nodeColor = TreeColor.RED;
+            }
+        }
+
+        public void changeToBLUE()
+        {
+            this.nodeColor = TreeColor.BLUE;
+        }
+
+        public Tree? getChild(string nodeInfo)
+        {
+            // seharusnya ini pasti ketemu
+            foreach(Tree child in this.children)
+            {
+                if(child.info.Equals(nodeInfo))
+                {
+                    return child;
+                }
+            }
+            return null;
+        }
+    }
+
+    internal class DFS
+    {
+        public string searchedFile;
+        public Tree startingTree;
+
+        public DFS(string searchedFile, Tree startingTree)
+        {
+            this.searchedFile = searchedFile;
+            this.startingTree = startingTree;
+            List<string> p = new List<string>() { this.startingTree.info};
+            searchFile(this.startingTree, p);
+        }
+        // asumsi masih nyari semua file di semua subfolder
+        public void searchFile(Tree tree, List<string> path)
+        {
+            if(!tree.info.Equals(startingTree.info))
+            {
+                path.Add(tree.info);
+            }
+            tree.changeToRED();
+            if(tree.info.Equals(this.searchedFile) && tree.isLeaf())
+            {
+                this.treeColoring(path);
+            }
+            if(!tree.isLeaf())
+            {
+                foreach (Tree child in tree.children)
+                {
+                    List<string> newP = new List<string>();
+                    for (int i = 0; i < path.Count; i++)
+                    {
+                        newP.Add(path[i]);
+                    }
+                    searchFile(child, newP);
+                }
+            }
+        }
+
+        public void treeColoring(List<string> path)
+        {
+            Tree nodeTree = this.startingTree;
+            int i = 1;
+            while(!nodeTree.isLeaf())
+            {
+                nodeTree.changeToBLUE();
+                Tree nextNode = nodeTree.getChild(path[i]);
+                i++;
+                if(nextNode != null)
+                {
+                    nodeTree = nextNode;
+                }
+            }
+            nodeTree.changeToBLUE();
+        }
     }
 }
