@@ -76,14 +76,14 @@ namespace Tree_Explorer
             FileInfo[]  fileInfos = new DirectoryInfo(path).GetFiles();
             foreach(FileInfo fileInfo in fileInfos)
             {
-                this.dirTree.children.Add(new Tree(fileInfo.Name, TreeColor.RED));
+                this.dirTree.children.Add(new Tree(fileInfo.Name, TreeColor.BLACK));
             }
 
             DirectoryInfo[] directoryInfos = new DirectoryInfo(path).GetDirectories();
             Tree originalTree = this.dirTree;
             foreach (DirectoryInfo directoryInfo in directoryInfos)
             {
-                Tree tree = new Tree(directoryInfo.Name, TreeColor.RED);
+                Tree tree = new Tree(directoryInfo.Name, TreeColor.BLACK);
                 this.dirTree = tree;
                 constructDirectoryTree(directoryInfo.FullName);
                 originalTree.children.Add(tree);
@@ -94,11 +94,13 @@ namespace Tree_Explorer
         private void searchButton_Click(object sender, RoutedEventArgs e)
         {
             string path = startingFolderName.Text;
-            if (!string.IsNullOrEmpty(path))
+            string fileName = inputFileName.Text;
+            if (!string.IsNullOrEmpty(path) && !string.IsNullOrEmpty(fileName))
             {
-                dirTree = new Tree(path, TreeColor.RED);
+                dirTree = new Tree(path, TreeColor.BLACK);
                 constructDirectoryTree(path);
-
+                DFS dfs = new DFS(fileName, this.dirTree);
+                this.dirTree = dfs.startingTree;
                 this.graph = new Graph();
 
                 Node rootNode = new Node(path);

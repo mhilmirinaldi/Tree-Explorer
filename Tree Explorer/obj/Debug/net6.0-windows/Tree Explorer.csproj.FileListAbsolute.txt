@@ -23,3 +23,28 @@ C:\Bryan\Kuliah\Semester 4 (2021-2022)\3 Strategi Algoritma\Folder Crawling Tube
 C:\Bryan\Kuliah\Semester 4 (2021-2022)\3 Strategi Algoritma\Folder Crawling Tubes 2\Tubes2-Stima\Tree Explorer\bin\Debug\net6.0-windows\AutomaticGraphLayout.dll
 C:\Bryan\Kuliah\Semester 4 (2021-2022)\3 Strategi Algoritma\Folder Crawling Tubes 2\Tubes2-Stima\Tree Explorer\bin\Debug\net6.0-windows\AutomaticGraphLayout.Drawing.dll
 C:\Bryan\Kuliah\Semester 4 (2021-2022)\3 Strategi Algoritma\Folder Crawling Tubes 2\Tubes2-Stima\Tree Explorer\bin\Debug\net6.0-windows\Microsoft.Msagl.WpfGraphControl.dll
+E:\Semester 4\IF2211 Strategi Algoritma\Tugas\Tubes2-Stima\Tree Explorer\bin\Debug\net6.0-windows\Tree Explorer.exe
+E:\Semester 4\IF2211 Strategi Algoritma\Tugas\Tubes2-Stima\Tree Explorer\bin\Debug\net6.0-windows\Tree Explorer.deps.json
+E:\Semester 4\IF2211 Strategi Algoritma\Tugas\Tubes2-Stima\Tree Explorer\bin\Debug\net6.0-windows\Tree Explorer.runtimeconfig.json
+E:\Semester 4\IF2211 Strategi Algoritma\Tugas\Tubes2-Stima\Tree Explorer\bin\Debug\net6.0-windows\Tree Explorer.dll
+E:\Semester 4\IF2211 Strategi Algoritma\Tugas\Tubes2-Stima\Tree Explorer\bin\Debug\net6.0-windows\Tree Explorer.pdb
+E:\Semester 4\IF2211 Strategi Algoritma\Tugas\Tubes2-Stima\Tree Explorer\bin\Debug\net6.0-windows\AutomaticGraphLayout.dll
+E:\Semester 4\IF2211 Strategi Algoritma\Tugas\Tubes2-Stima\Tree Explorer\bin\Debug\net6.0-windows\AutomaticGraphLayout.Drawing.dll
+E:\Semester 4\IF2211 Strategi Algoritma\Tugas\Tubes2-Stima\Tree Explorer\bin\Debug\net6.0-windows\Microsoft.Msagl.WpfGraphControl.dll
+E:\Semester 4\IF2211 Strategi Algoritma\Tugas\Tubes2-Stima\Tree Explorer\obj\Debug\net6.0-windows\Tree Explorer.csproj.AssemblyReference.cache
+E:\Semester 4\IF2211 Strategi Algoritma\Tugas\Tubes2-Stima\Tree Explorer\obj\Debug\net6.0-windows\MainWindow.g.cs
+E:\Semester 4\IF2211 Strategi Algoritma\Tugas\Tubes2-Stima\Tree Explorer\obj\Debug\net6.0-windows\App.g.cs
+E:\Semester 4\IF2211 Strategi Algoritma\Tugas\Tubes2-Stima\Tree Explorer\obj\Debug\net6.0-windows\Tree Explorer_MarkupCompile.cache
+E:\Semester 4\IF2211 Strategi Algoritma\Tugas\Tubes2-Stima\Tree Explorer\obj\Debug\net6.0-windows\Tree Explorer_MarkupCompile.lref
+E:\Semester 4\IF2211 Strategi Algoritma\Tugas\Tubes2-Stima\Tree Explorer\obj\Debug\net6.0-windows\MainWindow.baml
+E:\Semester 4\IF2211 Strategi Algoritma\Tugas\Tubes2-Stima\Tree Explorer\obj\Debug\net6.0-windows\Tree Explorer.g.resources
+E:\Semester 4\IF2211 Strategi Algoritma\Tugas\Tubes2-Stima\Tree Explorer\obj\Debug\net6.0-windows\Tree Explorer.GeneratedMSBuildEditorConfig.editorconfig
+E:\Semester 4\IF2211 Strategi Algoritma\Tugas\Tubes2-Stima\Tree Explorer\obj\Debug\net6.0-windows\Tree Explorer.AssemblyInfoInputs.cache
+E:\Semester 4\IF2211 Strategi Algoritma\Tugas\Tubes2-Stima\Tree Explorer\obj\Debug\net6.0-windows\Tree Explorer.AssemblyInfo.cs
+E:\Semester 4\IF2211 Strategi Algoritma\Tugas\Tubes2-Stima\Tree Explorer\obj\Debug\net6.0-windows\Tree Explorer.csproj.CoreCompileInputs.cache
+E:\Semester 4\IF2211 Strategi Algoritma\Tugas\Tubes2-Stima\Tree Explorer\obj\Debug\net6.0-windows\Tree Explorer.csproj.CopyComplete
+E:\Semester 4\IF2211 Strategi Algoritma\Tugas\Tubes2-Stima\Tree Explorer\obj\Debug\net6.0-windows\Tree Explorer.dll
+E:\Semester 4\IF2211 Strategi Algoritma\Tugas\Tubes2-Stima\Tree Explorer\obj\Debug\net6.0-windows\refint\Tree Explorer.dll
+E:\Semester 4\IF2211 Strategi Algoritma\Tugas\Tubes2-Stima\Tree Explorer\obj\Debug\net6.0-windows\Tree Explorer.pdb
+E:\Semester 4\IF2211 Strategi Algoritma\Tugas\Tubes2-Stima\Tree Explorer\obj\Debug\net6.0-windows\Tree Explorer.genruntimeconfig.cache
+E:\Semester 4\IF2211 Strategi Algoritma\Tugas\Tubes2-Stima\Tree Explorer\obj\Debug\net6.0-windows\ref\Tree Explorer.dll
