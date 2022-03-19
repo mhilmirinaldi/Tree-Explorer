@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "mCrqcNHxzNqBP6QPUV+nHhjp3u0Vi6eJGlobdoJnBqQ0PQVyU8GMN8RhVTcHYN29LF4wJEZlgHpw6SId86UHCA==",
+  "dgSpecHash": "nLNUB9oNfpOX3gXLC40jb6cA9VbRzF4EAod0bkoR9nVfNVuZ5HUWMEKmoOyrBs7wuXwXdzlFlU8EAp7WufnrWg==",
   "success": true,
-  "projectFilePath": "E:\\Semester 4\\IF2211 Strategi Algoritma\\Tugas\\Tubes2-Stima\\Tree Explorer\\Tree Explorer.csproj",
+  "projectFilePath": "C:\\Bryan\\Kuliah\\Semester 4 (2021-2022)\\3 Strategi Algoritma\\Folder Crawling Tubes 2\\Tubes2-Stima\\Tree Explorer\\Tree Explorer.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\3sult\\.nuget\\packages\\automaticgraphlayout\\1.1.12\\automaticgraphlayout.1.1.12.nupkg.sha512",
-    "C:\\Users\\3sult\\.nuget\\packages\\automaticgraphlayout.drawing\\1.1.12\\automaticgraphlayout.drawing.1.1.12.nupkg.sha512",
-    "C:\\Users\\3sult\\.nuget\\packages\\automaticgraphlayout.wpfgraphcontrol\\1.1.12\\automaticgraphlayout.wpfgraphcontrol.1.1.12.nupkg.sha512"
+    "C:\\Users\\LENOVO\\.nuget\\packages\\automaticgraphlayout\\1.1.12\\automaticgraphlayout.1.1.12.nupkg.sha512",
+    "C:\\Users\\LENOVO\\.nuget\\packages\\automaticgraphlayout.drawing\\1.1.12\\automaticgraphlayout.drawing.1.1.12.nupkg.sha512",
+    "C:\\Users\\LENOVO\\.nuget\\packages\\automaticgraphlayout.wpfgraphcontrol\\1.1.12\\automaticgraphlayout.wpfgraphcontrol.1.1.12.nupkg.sha512"
   ],
   "logs": []
 }
