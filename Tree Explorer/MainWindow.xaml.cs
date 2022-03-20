@@ -91,6 +91,7 @@ namespace Tree_Explorer
             this.dirTree = originalTree;
         }
 
+
         private void searchButton_Click(object sender, RoutedEventArgs e)
         {
             string path = startingFolderName.Text;
@@ -99,7 +100,8 @@ namespace Tree_Explorer
             {
                 dirTree = new Tree(path, TreeColor.BLACK);
                 constructDirectoryTree(path);
-                DFS dfs = new DFS(fileName, this.dirTree);
+                bool isOneOccurance = true;
+                DFS dfs = new DFS(fileName, this.dirTree, isOneOccurance);
                 this.dirTree = dfs.startingTree;
                 this.graph = new Graph();
 

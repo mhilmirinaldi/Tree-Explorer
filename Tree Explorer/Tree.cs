@@ -118,36 +118,44 @@ namespace Tree_Explorer
     {
         public string searchedFile;
         public Tree startingTree;
+        public bool isOneOccurance;
+        public int totalOccurance;
 
-        public DFS(string searchedFile, Tree startingTree)
+        public DFS(string searchedFile, Tree startingTree, bool isOneOccurance)
         {
             this.searchedFile = searchedFile;
             this.startingTree = startingTree;
+            this.isOneOccurance = isOneOccurance;
+            this.totalOccurance = 0;
             List<string> p = new List<string>() { this.startingTree.info};
-            searchFile(this.startingTree, p);
+            this.searchFile(this.startingTree, p);
         }
         // asumsi masih nyari semua file di semua subfolder
         public void searchFile(Tree tree, List<string> path)
         {
-            if(!tree.info.Equals(startingTree.info))
+            if(!(this.isOneOccurance && this.totalOccurance == 1))
             {
-                path.Add(tree.info);
-            }
-            tree.changeToRED();
-            if(tree.info.Equals(this.searchedFile) && tree.isLeaf())
-            {
-                this.treeColoring(path);
-            }
-            if(!tree.isLeaf())
-            {
-                foreach (Tree child in tree.children)
+                if (!tree.info.Equals(startingTree.info))
                 {
-                    List<string> newP = new List<string>();
-                    for (int i = 0; i < path.Count; i++)
+                    path.Add(tree.info);
+                }
+                tree.changeToRED();
+                if (tree.info.Equals(this.searchedFile) && tree.isLeaf())
+                {
+                    this.treeColoring(path);
+                    this.totalOccurance++;
+                }
+                if (!tree.isLeaf())
+                {
+                    foreach (Tree child in tree.children)
                     {
-                        newP.Add(path[i]);
+                        List<string> newP = new List<string>();
+                        for (int i = 0; i < path.Count; i++)
+                        {
+                            newP.Add(path[i]);
+                        }
+                        searchFile(child, newP);
                     }
-                    searchFile(child, newP);
                 }
             }
         }
