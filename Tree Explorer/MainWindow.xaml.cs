@@ -96,13 +96,32 @@ namespace Tree_Explorer
         {
             string path = startingFolderName.Text;
             string fileName = inputFileName.Text;
+            matchPathList.Items.Clear();
             if (!string.IsNullOrEmpty(path) && !string.IsNullOrEmpty(fileName))
             {
+                bool isOneOccurance = !isAllOccurence.IsChecked.Value;
                 dirTree = new Tree(path, TreeColor.BLACK);
                 constructDirectoryTree(path);
-                bool isOneOccurance = true;
-                DFS dfs = new DFS(fileName, this.dirTree, isOneOccurance);
-                this.dirTree = dfs.startingTree;
+                if (metodeBFS.IsChecked.Value)
+                {
+                    BFS bfs = new BFS(fileName, this.dirTree, isOneOccurance);
+                    this.dirTree = bfs.startingTree;
+
+                    foreach(string result in bfs.resultPaths)
+                    {
+                        matchPathList.Items.Add(result);
+                    }
+                } else if (metodeDFS.IsChecked.Value)
+                {
+                    DFS dfs = new DFS(fileName, this.dirTree, isOneOccurance);
+                    this.dirTree = dfs.startingTree;
+
+                    foreach (string result in dfs.resultPaths)
+                    {
+                        matchPathList.Items.Add(result);
+                    }
+                }
+
                 this.graph = new Graph();
 
                 Node rootNode = new Node(path);

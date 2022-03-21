@@ -13,6 +13,11 @@ namespace Tree_Explorer
         BLUE
     }
 
+    enum MetodeSearch
+    {
+        BFS, DFS
+    }
+
     internal class TreeColorToRGB
     {
         public TreeColor color;
@@ -120,6 +125,7 @@ namespace Tree_Explorer
         public Tree startingTree;
         public bool isOneOccurance;
         public int totalOccurance;
+        public List<string> resultPaths;
 
         public DFS(string searchedFile, Tree startingTree, bool isOneOccurance)
         {
@@ -127,6 +133,7 @@ namespace Tree_Explorer
             this.startingTree = startingTree;
             this.isOneOccurance = isOneOccurance;
             this.totalOccurance = 0;
+            this.resultPaths = new List<string>();
             List<string> p = new List<string>() { this.startingTree.info};
             this.searchFile(this.startingTree, p);
         }
@@ -163,10 +170,12 @@ namespace Tree_Explorer
         public void treeColoring(List<string> path)
         {
             Tree nodeTree = this.startingTree;
+            string cumulPath = "";
             int i = 1;
             while(!nodeTree.isLeaf())
             {
                 nodeTree.changeToBLUE();
+                cumulPath += nodeTree.info + "\\";
                 Tree nextNode = nodeTree.getChild(path[i]);
                 i++;
                 if(nextNode != null)
@@ -175,6 +184,8 @@ namespace Tree_Explorer
                 }
             }
             nodeTree.changeToBLUE();
+            cumulPath += nodeTree.info;
+            this.resultPaths.Add(cumulPath);
         }
     }
 
@@ -183,6 +194,7 @@ namespace Tree_Explorer
         public string searchedFile;
         public Tree startingTree;
         public bool isOneOccurance;
+        public List<string> resultPaths;
 
         private List<string> path;
         private Queue<Tree> queue;
@@ -193,6 +205,7 @@ namespace Tree_Explorer
             this.searchedFile = searchedFile;
             this.startingTree = startingTree;
             this.isOneOccurance = isOneOccurance;
+            this.resultPaths = new List<string>();
             Initial(startingTree);
             this.searchFile(this.startingTree);
         }
@@ -268,10 +281,12 @@ namespace Tree_Explorer
         public void treeColoring(List<string> path)
         {
             Tree nodeTree = this.startingTree;
+            string cumulPath = "";
             int i = 1;
             while (!nodeTree.isLeaf())
             {
                 nodeTree.changeToBLUE();
+                cumulPath += nodeTree.info + "\\";
                 Tree nextNode = nodeTree.getChild(path[i]);
                 i++;
                 if (nextNode != null)
@@ -280,6 +295,8 @@ namespace Tree_Explorer
                 }
             }
             nodeTree.changeToBLUE();
+            cumulPath += nodeTree.info;
+            this.resultPaths.Add(cumulPath);
         }
     }
 }
