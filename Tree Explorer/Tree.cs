@@ -177,4 +177,97 @@ namespace Tree_Explorer
             nodeTree.changeToBLUE();
         }
     }
+
+    internal class BFS
+    {
+        public string searchedFile;
+        public Tree startingTree;
+        public bool isOneOccurance;
+        public int totalOccurance;
+
+        private List<string> path;
+        private Queue<Tree> queue;
+        private Queue<List<string>> childPath;
+
+        public BFS(string searchedFile, Tree startingTree, bool isOneOccurance)
+        {
+            this.searchedFile = searchedFile;
+            this.startingTree = startingTree;
+            this.isOneOccurance = isOneOccurance;
+            this.totalOccurance = 0;
+            Initial(startingTree);
+            this.searchFile(this.startingTree);
+        }
+        public void searchFile(Tree tree)
+        {
+            if (this.isOneOccurance)
+            {
+                if (!tree.info.Equals(this.searchedFile))
+                {
+                    BFSRecursive(tree);
+                    searchFile(queue.Peek());
+                }
+                tree.changeToRED();
+                if (tree.info.Equals(this.searchedFile) && tree.isLeaf())
+                {
+                    treeColoring(childPath.Peek());
+                }
+            }
+            else
+            {
+                if (!tree.info.Equals(this.searchedFile))
+                {
+                    BFSRecursive(tree);
+                    searchFile(queue.Peek());
+                }
+                tree.changeToRED();
+                if (tree.info.Equals(this.searchedFile) && tree.isLeaf())
+                {
+                    treeColoring(childPath.Peek());
+                }
+            }
+        }
+
+        private void BFSRecursive(Tree tree)
+        {
+            queue.Dequeue();
+            path = childPath.Dequeue();
+            foreach (Tree childRecursive in tree.children)
+            {
+                queue.Enqueue(childRecursive);
+                path.Add(childRecursive.info);
+                List<string> newP = new List<string>(path);
+                childPath.Enqueue(newP);
+                path.Remove(childRecursive.info);
+            }
+        }
+
+        private void Initial(Tree tree)
+        {
+            path = new List<string>();
+            queue = new Queue<Tree>();
+            childPath = new Queue<List<string>>();
+            List<string> currentPath = new List<string>();
+
+            currentPath.Add(tree.info);
+            queue.Enqueue(tree);
+            childPath.Enqueue(currentPath);
+        }
+        public void treeColoring(List<string> path)
+        {
+            Tree nodeTree = this.startingTree;
+            int i = 1;
+            while (!nodeTree.isLeaf())
+            {
+                nodeTree.changeToBLUE();
+                Tree nextNode = nodeTree.getChild(path[i]);
+                i++;
+                if (nextNode != null)
+                {
+                    nodeTree = nextNode;
+                }
+            }
+            nodeTree.changeToBLUE();
+        }
+    }
 }
