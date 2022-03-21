@@ -183,7 +183,6 @@ namespace Tree_Explorer
         public string searchedFile;
         public Tree startingTree;
         public bool isOneOccurance;
-        public int totalOccurance;
 
         private List<string> path;
         private Queue<Tree> queue;
@@ -194,18 +193,21 @@ namespace Tree_Explorer
             this.searchedFile = searchedFile;
             this.startingTree = startingTree;
             this.isOneOccurance = isOneOccurance;
-            this.totalOccurance = 0;
             Initial(startingTree);
             this.searchFile(this.startingTree);
         }
+
         public void searchFile(Tree tree)
         {
             if (this.isOneOccurance)
             {
-                if (!tree.info.Equals(this.searchedFile))
+                if (!tree.info.Equals(this.searchedFile) || !tree.isLeaf())
                 {
                     BFSRecursive(tree);
-                    searchFile(queue.Peek());
+                    if(queue.Count > 0)
+                    {
+                        searchFile(queue.Peek());
+                    }
                 }
                 tree.changeToRED();
                 if (tree.info.Equals(this.searchedFile) && tree.isLeaf())
@@ -215,15 +217,24 @@ namespace Tree_Explorer
             }
             else
             {
-                if (!tree.info.Equals(this.searchedFile))
+                if (!tree.info.Equals(this.searchedFile) || !tree.isLeaf())
                 {
                     BFSRecursive(tree);
-                    searchFile(queue.Peek());
+                    if (queue.Count > 0)
+                    {
+                        searchFile(queue.Peek());
+                    }
                 }
                 tree.changeToRED();
                 if (tree.info.Equals(this.searchedFile) && tree.isLeaf())
                 {
                     treeColoring(childPath.Peek());
+                    queue.Dequeue();
+                    path = childPath.Dequeue();
+                    if (queue.Count > 0)
+                    {
+                        searchFile(queue.Peek());
+                    }
                 }
             }
         }
@@ -253,6 +264,7 @@ namespace Tree_Explorer
             queue.Enqueue(tree);
             childPath.Enqueue(currentPath);
         }
+
         public void treeColoring(List<string> path)
         {
             Tree nodeTree = this.startingTree;
