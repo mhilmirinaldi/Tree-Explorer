@@ -19,6 +19,7 @@ using System.Drawing;
 using Microsoft.Msagl.Drawing;
 using Microsoft.Msagl.WpfGraphControl;
 using System.IO;
+using System.Diagnostics;
 
 namespace Tree_Explorer
 {
@@ -52,13 +53,17 @@ namespace Tree_Explorer
 
         void updateGraph(string path, Tree tree)
         {
-            foreach(Tree node in tree.children)
+            //foreach(Tree node in tree.children)
+            for(int i = tree.children.Count - 1; i >= 0; i--)
             {
+                Tree node = tree.children[i];
                 Node graphNode = new Node(path + "\\" + node.info);
                 graphNode.LabelText = node.info;
                 TreeColorToRGB nodeColor = new TreeColorToRGB(node.nodeColor);
                 Microsoft.Msagl.Drawing.Color nodeEdgeColor = new Microsoft.Msagl.Drawing.Color(nodeColor.r, nodeColor.g, nodeColor.b);
                 graphNode.Attr.Color = nodeEdgeColor;
+                graphNode.Attr.LabelMargin = 5;
+                graphNode.Attr.LineWidth = 2;
                 this.graph.AddNode(graphNode);
 
                 Edge newEdge = this.graph.AddEdge(path, graphNode.Id);
@@ -96,9 +101,14 @@ namespace Tree_Explorer
         {
             string path = startingFolderName.Text;
             string fileName = inputFileName.Text;
+            DirectoryInfo directoryInfo = new DirectoryInfo(path);
             matchPathList.Items.Clear();
-            if (!string.IsNullOrEmpty(path) && !string.IsNullOrEmpty(fileName))
+
+            if (directoryInfo.Exists && !string.IsNullOrEmpty(fileName))
             {
+                Stopwatch stopwatch = new Stopwatch();
+                stopwatch.Start();
+
                 bool isOneOccurance = !isAllOccurence.IsChecked.Value;
                 dirTree = new Tree(path, TreeColor.BLACK);
                 constructDirectoryTree(path);
@@ -109,7 +119,27 @@ namespace Tree_Explorer
 
                     foreach(string result in bfs.resultPaths)
                     {
-                        matchPathList.Items.Add(result);
+                        ListBoxItem listItem = new ListBoxItem();
+                        StackPanel sp = new StackPanel();
+                        sp.Orientation = System.Windows.Controls.Orientation.Horizontal;
+
+                        System.Windows.Controls.Label label = new System.Windows.Controls.Label();
+                        label.Content = result;
+                        
+                        System.Windows.Controls.Button button = new System.Windows.Controls.Button();
+                        button.DataContext = result;
+                        button.Content = "Open";
+                        button.Click += (o, e) =>
+                        {
+                            System.Windows.Controls.Button button = (System.Windows.Controls.Button)o;
+                            DirectoryInfo dirInfo = new DirectoryInfo((string)button.DataContext);
+                            ProcessStartInfo startInfo = new ProcessStartInfo("explorer.exe", dirInfo.Parent.FullName);
+                            Process.Start(startInfo);
+                        };
+
+                        sp.Children.Add(button);
+                        sp.Children.Add(label);
+                        matchPathList.Items.Add(sp);
                     }
                 } else if (metodeDFS.IsChecked.Value)
                 {
@@ -118,7 +148,27 @@ namespace Tree_Explorer
 
                     foreach (string result in dfs.resultPaths)
                     {
-                        matchPathList.Items.Add(result);
+                        ListBoxItem listItem = new ListBoxItem();
+                        StackPanel sp = new StackPanel();
+                        sp.Orientation = System.Windows.Controls.Orientation.Horizontal;
+
+                        System.Windows.Controls.Label label = new System.Windows.Controls.Label();
+                        label.Content = result;
+
+                        System.Windows.Controls.Button button = new System.Windows.Controls.Button();
+                        button.DataContext = result;
+                        button.Content = "Open";
+                        button.Click += (o, e) =>
+                        {
+                            System.Windows.Controls.Button button = (System.Windows.Controls.Button)o;
+                            DirectoryInfo dirInfo = new DirectoryInfo((string)button.DataContext);
+                            ProcessStartInfo startInfo = new ProcessStartInfo("explorer.exe", dirInfo.Parent.FullName);
+                            Process.Start(startInfo);
+                        };
+
+                        sp.Children.Add(button);
+                        sp.Children.Add(label);
+                        matchPathList.Items.Add(sp);
                     }
                 }
 
@@ -127,10 +177,18 @@ namespace Tree_Explorer
                 Node rootNode = new Node(path);
                 TreeColorToRGB rootColor = new TreeColorToRGB(this.dirTree.nodeColor);
                 rootNode.Attr.Color = new Microsoft.Msagl.Drawing.Color(rootColor.r, rootColor.g, rootColor.b);
+                rootNode.Attr.LabelMargin = 5;
+                rootNode.Attr.LineWidth = 2;
                 graph.AddNode(rootNode);
 
                 updateGraph(path, this.dirTree);
                 graphControl.Graph = this.graph;    // Mengupdate graph di UI (graphControl)
+                stopwatch.Stop();
+                waktuEksekusiLabel.Content = "Waktu eksekusi: " + stopwatch.ElapsedMilliseconds + " ms";
+            }
+            else
+            {
+                System.Windows.MessageBox.Show("Folder awal tidak valid atau nama file kosong!", "Tidak valid", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

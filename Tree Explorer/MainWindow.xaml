@@ -6,7 +6,7 @@
         xmlns:wpfcoregraphcontrol="http://mlsagl"
         xmlns:local="clr-namespace:Tree_Explorer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Tree Explorer" Height="450" Width="800" WindowState="Maximized">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -53,7 +53,8 @@
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="Auto"/>
                     <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
                 <wpfcoregraphcontrol:AutomaticGraphLayoutControl
@@ -61,7 +62,11 @@
                     Grid.Row="1"/>
 
                 <Label FontSize="15" HorizontalAlignment="Center">Output</Label>
-                <ListBox x:Name="matchPathList" Grid.Row="2"/>
+                <StackPanel Orientation="Vertical" Grid.Row="2">
+                    <Label x:Name="waktuEksekusiLabel">Waktu Eksekusi:</Label>
+                    <Label>Path File:</Label>
+                </StackPanel>
+                <ListBox x:Name="matchPathList" Grid.Row="3"/>
             </Grid>
         </Grid>
     </Grid>

@@ -156,12 +156,19 @@ namespace Tree_Explorer
                 {
                     foreach (Tree child in tree.children)
                     {
-                        List<string> newP = new List<string>();
-                        for (int i = 0; i < path.Count; i++)
+                        if (this.isOneOccurance && this.totalOccurance == 1)
                         {
-                            newP.Add(path[i]);
+                            child.children.Clear();
                         }
-                        searchFile(child, newP);
+                        else
+                        {
+                            List<string> newP = new List<string>();
+                            for (int i = 0; i < path.Count; i++)
+                            {
+                                newP.Add(path[i]);
+                            }
+                            searchFile(child, newP);
+                        }
                     }
                 }
             }
@@ -226,6 +233,11 @@ namespace Tree_Explorer
                 if (tree.info.Equals(this.searchedFile) && tree.isLeaf())
                 {
                     treeColoring(childPath.Peek());
+                    while(this.queue.Count > 0)
+                    {
+                        Tree temp = queue.Dequeue();
+                        temp.children.Clear();
+                    }
                 }
             }
             else
