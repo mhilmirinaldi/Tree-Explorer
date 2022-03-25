@@ -53,7 +53,7 @@ Agar dapat menjalankan file yang berada pada folder bin diperlukan instalasi
 
 
 ## How to Build
-Buka project dengan Visual Studio (project dibuat dengan versi 2022). Pastikan memiliki .Net 6, serta menginstall MSAGL untuk WPF melalui Nugget. Tekan Build untuk melakukan kompilasi.
+Buka project pada "src/Tree Explorer" dengan Visual Studio (project dibuat dengan versi 2022). Pastikan memiliki .Net 6, serta menginstall MSAGL untuk WPF melalui Nugget. Tekan Build untuk melakukan kompilasi.
 
 ## Project Status
 Project is: _complete_

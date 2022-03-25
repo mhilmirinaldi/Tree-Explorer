@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "2tk2o60ZmEQkfOa7upuWlECJM8MUdDnooN2mrGPojkw2oplRsMhAGzgz5+XaFZVstd+DBbi0KefLhqFH/LdH3g==",
+  "success": true,
+  "projectFilePath": "C:\\Bryan\\Kuliah\\Semester 4 (2021-2022)\\3 Strategi Algoritma\\Folder Crawling Tubes 2\\Tubes2-Stima\\Tree Explorer\\Tree Explorer.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\LENOVO\\.nuget\\packages\\automaticgraphlayout\\1.1.12\\automaticgraphlayout.1.1.12.nupkg.sha512",
+    "C:\\Users\\LENOVO\\.nuget\\packages\\automaticgraphlayout.drawing\\1.1.12\\automaticgraphlayout.drawing.1.1.12.nupkg.sha512",
+    "C:\\Users\\LENOVO\\.nuget\\packages\\automaticgraphlayout.wpfgraphcontrol\\1.1.12\\automaticgraphlayout.wpfgraphcontrol.1.1.12.nupkg.sha512"
+  ],
+  "logs": []
+}
