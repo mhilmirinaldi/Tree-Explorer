@@ -1,4 +1,3 @@
 .vs
-Tree Explorer/bin/Debug
-Tree Explorer/bin/Release
-Tree Explorer/obj
+src/Tree Explorer/bin
+src/Tree Explorer/obj
